@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InnerSpace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              // Defined as RGB channels to allow opacity modifiers (e.g., bg-void/80)
+              void: 'rgb(var(--color-void) / <alpha-value>)',
+              surface: 'rgb(var(--color-surface) / <alpha-value>)',
+              mist: 'rgb(var(--color-mist) / <alpha-value>)',
+              ash: 'rgb(var(--color-ash) / <alpha-value>)',
+              starlight: 'rgb(var(--color-starlight) / <alpha-value>)',
+            },
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Light Mode (Daydream) Palette - High Contrast Optimized */
+        --color-void: 255 255 255;      /* #ffffff - Pure White for max contrast */
+        --color-surface: 240 240 242;   /* #f0f0f2 - Distinct surface */
+        --color-mist: 200 200 205;      /* #c8c8cd - Darker borders for visibility */
+        --color-ash: 82 82 91;          /* #52525b - Darker gray for readable secondary text */
+        --color-starlight: 24 24 27;    /* #18181b - Near black for primary text */
+      }
+
+      .dark {
+        /* Dark Mode (InnerSpace) Palette */
+        --color-void: 9 9 11;           /* #09090b */
+        --color-surface: 24 24 27;      /* #18181b */
+        --color-mist: 39 39 42;         /* #27272a */
+        --color-ash: 161 161 170;       /* #a1a1aa - Lighter gray for dark mode readability */
+        --color-starlight: 244 244 245; /* #f4f4f5 */
+      }
+
+      body {
+        background-color: rgb(var(--color-void));
+        color: rgb(var(--color-starlight));
+        overflow-x: hidden;
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      /* Smooth transitions for all theme-dependent elements */
+      *, *::before, *::after {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--color-void));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--color-mist));
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--color-ash));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
